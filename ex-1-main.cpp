@@ -13,7 +13,11 @@
  *  ファイルを作成せよ。 
  */  
  /*    -------------------------------------------------------------- */
- int nth_prime(unsigned int a, unsigned int d, unsigned int n);
+ int nth_prime(unsigned int a, unsigned int d, unsigned int n) {
+    for (int i = 0; a + (d*i) < CPP2_PRIME_UPPER_LIMIT; i++) {
+        cout << a + (d*i) << endl;
+    }
+}
 
  int main(){
      std:cout << nth_prime(367, 186, 151) << std:endl;
