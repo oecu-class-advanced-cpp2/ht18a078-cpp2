@@ -22,8 +22,31 @@ int nth_prime(unsigned int a, unsigned int d, unsigned int n) {
     return -1;
 }
 
+bool is_prime(int num) {
+    bool init = true;
+
+    if (num <= 1) 
+        return false;
+    if (num == 2)
+        return true;
+    if (num > 2) {
+        for (int k = 2; k < num; k++) {
+            if (num % k == 0) {
+                init = false;
+                break;
+            }
+        }
+        return init;
+    }
+}
+
 int main() {
-    nth_prime(2, 3, 100);
+    // nth_prime(2, 3, 100);
+    std::cout << is_prime(1) << std::endl;
+    std::cout << is_prime(2) << std::endl;
+    std::cout << is_prime(5) << std::endl;
+    std::cout << is_prime(11) << std::endl;
+    std::cout << is_prime(15) << std::endl;
     //以下、同様に、出力例通りになるか確認せよ。
     return 0;
 }
