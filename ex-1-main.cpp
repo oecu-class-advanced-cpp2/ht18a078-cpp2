@@ -46,7 +46,42 @@ int nth_prime(unsigned int a, unsigned int d, unsigned int n) {
 }
 
 int main() {
-    std::cout << nth_prime(367, 186, 151) << std::endl;
-    //以下、同様に、出力例通りになるか確認せよ。
+//以下、同様に、出力例通りになるか確認せよ。
+    std::cout << "Input: 367,186,151 Output: 92809 result: "
+    << nth_prime(367, 186, 151) << endl;
+
+    std::cout << "Input: 179,10,203 Output: 6709 result: "
+        << nth_prime(179, 10, 203) << endl;
+
+    std::cout << "Input: 271,37,39 Output: 12037 result: "
+        << nth_prime(271, 37, 39) << endl;
+
+    std::cout << "Input: 103,230,1 Output: 103 result: "
+        << nth_prime(103,230,1) << endl;
+    
+    std::cout << "Input: 27,104,185 Output: 93523 result: "
+        << nth_prime(27, 104, 185) << endl;
+
+    std::cout << "Input: 253,50,85 Output: 14503 result: "
+        << nth_prime(253, 50, 85) << endl;
+
+    std::cout << "Input: 1,1,1 Output: 2 result: "
+        << nth_prime(1, 1, 1) << endl;
+
+    std::cout << "Input: 9075,337,210  Output: 899429 result: "
+        << nth_prime(9075, 337, 210) << endl;
+
+    std::cout << "Input: 307,24,79  Output: 5107 result: "
+        << nth_prime(307, 24, 79) << endl;
+
+    std::cout << "Input: 331,221,177 Output: 412717 result: "
+        << nth_prime(331, 221, 177) << endl;
+
+    std::cout << "Input: 259,170,40  Output: 22699 result: "
+        << nth_prime(259, 170, 40) << endl;
+
+    std::cout << "Input: 269,58,102 Output: 25673 result: "
+        << nth_prime(269, 58, 102) << endl;
+
     return 0;
 }
