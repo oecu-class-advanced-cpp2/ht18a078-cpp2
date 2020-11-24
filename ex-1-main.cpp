@@ -83,5 +83,7 @@ int main() {
     std::cout << "Input: 269,58,102 Output: 25673 result: "
         << nth_prime(269, 58, 102) << endl;
 
+    // 入出力例確認済み
+
     return 0;
 }
