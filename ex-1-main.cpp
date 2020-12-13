@@ -1,4 +1,4 @@
-// ex_1_main_cpp.cpp
+// ex-1_main.cpp
 #include <iostream>
 using namespace std;
 
