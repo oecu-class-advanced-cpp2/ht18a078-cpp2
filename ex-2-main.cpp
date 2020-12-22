@@ -58,8 +58,32 @@ namespace cpp2 {
         現在の値を mcxi 記法に変換します。
         */
         /* ----------------------------------------------------------------- */
-        std::string to_string() const {
+        /* ----------------------------------------------------------------- */
+        /*
+        to_string
 
+        現在の値を mcxi 記法に変換します。
+        */
+        /* ----------------------------------------------------------------- */
+        std::string to_string() const {
+            std::string str;
+            int diff = value_;
+            if (int i = diff / 1000 != 0) {
+                str += i + '0' + 'm';
+                diff -= i * 1000;
+            }
+            if (int k = diff / 100 != 0) {
+                str += k + '0' + 'c';
+                diff -= k * 100;
+            }
+            if (int j = diff / 10 != 0) {
+                str += j + '0' + 'x';
+                diff -= j * 10;
+            }
+            if (diff != 0) {
+                str += diff + '0' + 'i';
+            }
+            return str;
         }
 
     private:
@@ -87,7 +111,7 @@ namespace cpp2 {
                 return 0;
             }
         }
-        
+
     private:
         int value_;
     };
