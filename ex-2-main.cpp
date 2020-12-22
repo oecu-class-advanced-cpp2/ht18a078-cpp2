@@ -95,20 +95,15 @@ namespace cpp2 {
         */
         /* ----------------------------------------------------------------- */
         int unit(char c) {
-            if (c == 'm') {
-                return 1000;
-            }
-            else if (c == 'c') {
-                return 100;
-            }
-            else if (c == 'x') {
-                return 10;
-            }
-            else if (c == 'i') {
-                return 1;
-            }
-            else {
-                return 0;
+            switch (c) {
+                case 'm':
+                    return 1000;
+                case 'c':
+                    return 100;
+                case 'x':
+                    return 10;
+                case 'i':
+                    return 1;
             }
         }
 
