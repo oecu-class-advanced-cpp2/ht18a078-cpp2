@@ -48,16 +48,11 @@ namespace cpp2 {
         */
         /* ----------------------------------------------------------------- */
         mcxi operator+(const mcxi& rhs) {
-
+            // value + valueの計算
+            return this->value_ + rhs.value_;
         }
+        const mcxi(int value) { this->value_ = value; }
 
-        /* ----------------------------------------------------------------- */
-        /*
-        to_string
-
-        現在の値を mcxi 記法に変換します。
-        */
-        /* ----------------------------------------------------------------- */
         /* ----------------------------------------------------------------- */
         /*
         to_string
@@ -69,7 +64,7 @@ namespace cpp2 {
             std::string str;
             int diff = value_;
             if (int i = diff / 1000 != 0) {
-                str += i + '0' + 'm';
+                str += i + 'm';
                 diff -= i * 1000;
             }
             if (int k = diff / 100 != 0) {
@@ -77,11 +72,11 @@ namespace cpp2 {
                 diff -= k * 100;
             }
             if (int j = diff / 10 != 0) {
-                str += j + '0' + 'x';
+                str += j + 'x';
                 diff -= j * 10;
             }
             if (diff != 0) {
-                str += diff + '0' + 'i';
+                str += diff + 'i';
             }
             return str;
         }
