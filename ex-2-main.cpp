@@ -62,7 +62,32 @@ namespace cpp2 {
 
         }
 
+    private:
+        /* ----------------------------------------------------------------- */
+        /*
+        unit
 
+        単位に対応する値を取得します。
+        */
+        /* ----------------------------------------------------------------- */
+        int unit(char c) {
+            if (c == 'm') {
+                return 1000;
+            }
+            else if (c == 'c') {
+                return 100;
+            }
+            else if (c == 'x') {
+                return 10;
+            }
+            else if (c == 'i') {
+                return 1;
+            }
+            else {
+                return 0;
+            }
+        }
+        
     private:
         int value_;
     };
