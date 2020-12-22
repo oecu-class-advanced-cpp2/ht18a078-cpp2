@@ -26,14 +26,15 @@ namespace cpp2 {
         */
         /* ----------------------------------------------------------------- */
         mcxi(const std::string& s) : value_(0) {
+            int num = 0;
             for (auto pos = s.begin(); pos != s.end(); pos++) {
                 if (*pos >= '2' && *pos <= '9') {
-                    value_ += *pos - '0';   // char - '0':文字コードを数字になおすテクニック
+                    num = *pos - '0';   // char - '0':文字コードを数字になおすテクニック
                 }
-                else if (*pos == 'm' || *pos == 'c' || *pos == 'x' || *pos == 'i') {
-                    if (*pos == 'x') {
-                        value_ += 1000;
-                    }
+                else {
+                    auto u = unit(*pos);
+                    value_ += std::fmax(num, 1) * u;
+                    num = 0;
                 }
             }
         }
