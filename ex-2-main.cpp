@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <sstream>
 
 namespace cpp2 {
     /* --------------------------------------------------------------------- */
@@ -61,25 +62,52 @@ namespace cpp2 {
         */
         /* ----------------------------------------------------------------- */
         std::string to_string() const {
-            std::string str;
-            int diff = value_;
-            if (int i = diff / 1000 != 0) {
-                str += i + 'm';
-                diff -= i * 1000;
+            std::stringstream ss;
+            int value = value_;
+            int num = value / 1000;
+            if (num == 1) {
+                ss << 'm';
+                value -= num * 1000;
             }
-            if (int k = diff / 100 != 0) {
-                str += k + '0' + 'c';
-                diff -= k * 100;
+            else if (num >= 2 && num <= 9) {
+                ss << num;
+                ss << 'm';
+                value -= num * 1000;
             }
-            if (int j = diff / 10 != 0) {
-                str += j + 'x';
-                diff -= j * 10;
+
+            num = value / 100;
+            if (num == 1) {
+                ss << 'c';
+                value -= num * 100;
             }
-            if (diff != 0) {
-                str += diff + 'i';
+            else if (num >= 2 && num <= 9) {
+                ss << num;
+                ss << 'c';
+                value -= num * 100;
             }
-            return str;
-        }
+
+            num = value / 10;
+            if (num == 1) {
+                ss << 'x';
+                value -= num * 10;
+            }
+            else if (num >= 2 && num <= 9) {
+                ss << num;
+                ss << 'x';
+                value -= num * 10;
+            }
+
+            num = value;
+            if (num == 1) {
+                ss << 'i';
+            }
+            else if (num >= 2 && num <= 9) {
+                ss << num;
+                ss << 'i';
+            }
+
+         return ss.str();
+    }
 
     private:
         /* ----------------------------------------------------------------- */
@@ -100,6 +128,7 @@ namespace cpp2 {
                 case 'i':
                     return 1;
             }
+            return 0;
         }
 
     private:
