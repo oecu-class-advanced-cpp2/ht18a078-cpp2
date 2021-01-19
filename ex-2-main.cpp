@@ -128,7 +128,8 @@ namespace cpp2 {
                 case 'i':
                     return 1;
             }
-            return 0;
+            std::cout << c << "は使用できない文字です" << std::endl;
+            return -1;
         }
 
     private:
@@ -182,8 +183,8 @@ int main() {
     auto result8 = a8 + b8;
     std::cout << "mx" << " " << result8.to_string() << std::endl;
 
-    cpp2::mcxi a9("9m8c7xi");
+    cpp2::mcxi a9("9m8c7xig");
     cpp2::mcxi b9("c2x8i");
     auto result9 = a9 + b9;
-    std::cout << "9m9c9x9i" << " " << result9.to_string() << std::endl;
+    std::cout << "9m9c9x9" << " " << result9.to_string() << std::endl;
 }
